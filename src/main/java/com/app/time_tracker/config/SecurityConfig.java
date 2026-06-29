@@ -46,8 +46,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Locked down to your specific frontend URL
-        configuration.setAllowedOrigins(Arrays.asList("https://focus-hub-frontend.vercel.app"));
+        // Locked down to your specific frontend URL and localhost for local development
+        configuration.setAllowedOrigins(Arrays.asList("https://focus-hub-frontend.vercel.app", "http://localhost:5173"));
 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));

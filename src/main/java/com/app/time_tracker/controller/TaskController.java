@@ -55,4 +55,10 @@ public class TaskController {
 
         return ResponseEntity.ok(taskRepository.save(task));
     }
+
+    @DeleteMapping("/user/{userId}/cleanup-revisions/{date}")
+    public ResponseEntity<?> cleanupOldRevisions(@PathVariable String userId, @PathVariable String date) {
+        taskRepository.deleteByUserIdAndTypeAndDueDateLessThan(userId, "REVISION", date);
+        return ResponseEntity.ok("Cleaned up old revisions");
+    }
 }

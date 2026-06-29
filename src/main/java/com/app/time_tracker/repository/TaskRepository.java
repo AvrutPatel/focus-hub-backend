@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TaskRepository extends MongoRepository<Task, String> {
     List<Task> findByUserId(String userId);
+    void deleteByUserIdAndTypeAndDueDateLessThan(String userId, String type, String date);
 }
